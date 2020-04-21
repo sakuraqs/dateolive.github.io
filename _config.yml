@@ -74,6 +74,13 @@ live2d:
   mobile:
     show: true
 
+# SNS settings
+RSS: false
+weibo_username:     datealive
+zhihu_username:     datealive
+github_username:    dateolive
+facebook_username:  datealive
+jianshu_username:   datealive
 
 
 # Featured Tags
