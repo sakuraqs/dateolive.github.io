@@ -63,10 +63,9 @@ valine:
   verify: true # Verification code
   placeholder: 非Github帐号登录用户，在此处留言 # comment box placeholder
   avatar:   # gravatar style
-  guest_info: datealive,2448282543@qq.com,www.datealive.top # custom comment header
+  guest_info: 昵称,邮件,网址 # custom comment header
   pageSize: 10 # pagination size
   # path: window.location.pathname
-
 
 
 
@@ -75,14 +74,14 @@ valine:
 # disqus_username: datealive
 
 # Gitalk
-#gitalk:
-  #enable: true    #是否开启Gitalk评论
-  #clientID: da2e2076661d99628fe7                            #生成的clientID
-  #clientSecret: f292a91f6e1b14a83126b2429e217afaac4028bc    #生成的clientSecret
-  #repo: dateolive.github.io    #仓库名称
-  #owner: datealive    #github用户名
-  #admin: datealive
-  #distractionFreeMode: true #是否启用类似FB的阴影遮罩
+gitalk:
+  enable: true    #是否开启Gitalk评论
+  clientID: da2e2076661d99628fe7                            #生成的clientID
+  clientSecret: f292a91f6e1b14a83126b2429e217afaac4028bc    #生成的clientSecret
+  repo: dateolive.github.io    #仓库名称
+  owner: datealive    #github用户名
+  admin: datealive
+  distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 
 
