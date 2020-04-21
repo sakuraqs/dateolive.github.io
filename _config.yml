@@ -51,15 +51,21 @@ kramdown:
 
 
 # 评论系统
-
-valine_comment:
+# Valine评论系统开关
+# Valine.
+# You can get your appid and appkey from https://leancloud.app
+# more info please open https://valine.js.org
+valine:
   enable: true
-# app_id
-  leancloud_appid: CTXh6zm6G5OAFYHbjO2dziWx-gzGzoHsz
-# app_key
-  leancloud_appkey: EttDnDooYHswiRRyCYnyY1V0
-# placeholde
-  placeholder: “Just go go"
+  appid:  CTXh6zm6G5OAFYHbjO2dziWx-gzGzoHsz # your leancloud app id
+  appkey: EttDnDooYHswiRRyCYnyY1V0 # your leancloud app key
+  notify: true # mail notifier , https://github.com/xCss/Valine/wiki
+  verify: true # Verification code
+  placeholder: 非Github帐号登录用户，在此处留言 # comment box placeholder
+  avatar:   # gravatar style
+  guest_info: 昵称,邮件,网址 # custom comment header
+  pageSize: 10 # pagination size
+  # path: window.location.pathname
 
 
 
