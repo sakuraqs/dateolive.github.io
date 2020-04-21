@@ -47,7 +47,24 @@ kramdown:
   input: GFM                            # use Github Flavored Markdown !important
 
 
+
+
+
 # 评论系统
+
+valine_comment:
+  enable: true
+# app_id
+  leancloud_appid: CTXh6zm6G5OAFYHbjO2dziWx-gzGzoHsz
+# app_key
+  leancloud_appkey: EttDnDooYHswiRRyCYnyY1V0
+# placeholde
+  placeholder: “Just go go"
+
+
+
+
+
 # Disqus（https://disqus.com/）
 # disqus_username: datealive
 
