@@ -47,7 +47,19 @@ kramdown:
   input: GFM                            # use Github Flavored Markdown !important
 
 
+# 评论系统
+# Disqus（https://disqus.com/）
+# disqus_username: datealive
 
+# Gitalk
+gitalk:
+  enable: true    #是否开启Gitalk评论
+  clientID: da2e2076661d99628fe7                            #生成的clientID
+  clientSecret: f292a91f6e1b14a83126b2429e217afaac4028bc    #生成的clientSecret
+  repo: dateolive.github.io    #仓库名称
+  owner: datealive    #github用户名
+  admin: datealive
+  distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 
 
