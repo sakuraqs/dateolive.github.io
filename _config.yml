@@ -63,7 +63,7 @@ valine:
   verify: true # Verification code
   placeholder: 非Github帐号登录用户，在此处留言 # comment box placeholder
   avatar:   # gravatar style
-  guest_info: 昵称,邮件,网址 # custom comment header
+  guest_info: datealive,2448282543@qq.com,www.datealive.top # custom comment header
   pageSize: 10 # pagination size
   # path: window.location.pathname
 
