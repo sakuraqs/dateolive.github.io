@@ -26,6 +26,9 @@ layout: default
 </style>
 <header class="intro-header" >
     <div class="header-mask"></div>
+	
+	
+	
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -35,6 +38,9 @@ layout: default
                         <a class="tag" href="{{ site.baseurl }}/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>
                         {% endfor %}
                     </div>
+			
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=422428930&auto=1&height=66"></iframe>
+			
                     <h1>{{ page.title }}</h1>
                     {% comment %}
                         always create a h2 for keeping the margin , Hux
@@ -53,11 +59,6 @@ layout: default
 <article>
     <div class="container">
         <div class="row">
-  <!-- 在正文开头添加网易云音乐插件 -->
-  {% if page.music-id %}
-    {% include cloud-music.html %}
-  {% endif %} 
-  {{ content }}
 		
     <!-- Post Container -->
             <div class="
