@@ -16,8 +16,10 @@ sidebar-avatar: /img/avatar_m.jpg      # use absolute URL, seeing it's used in b
 
 
 
-
-
+#RSS订阅
+name:         datealive  
+description:  ZRF's blog  
+url:          http://datealive.top/
 
 
 
