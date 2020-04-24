@@ -6,8 +6,19 @@
     <meta name="description" content="{{ site.description }}">
     <meta name="keywords"  content="{{ site.keyword }}">
     <meta name="theme-color" content="{{ site.chrome-tab-theme-color }}">
-    <meta name="description" content="{{ page.summary | escape }}"> 
-    <meta name="keywords" content="{{ page.tags | join: ', ' | escape }}"/> 
+    <!-- 标题 -->
+<meta property="og:title" content="Example title of article">
+<!-- 网站名 -->
+<meta property="og:site_name" content="example.com website">
+<!-- 类型 -->
+<meta property="og:type" content="article">
+<!-- 页面地址 -->
+<meta property="og:url" content="http://example.com/example-title-of-article">
+<!-- 略缩图地址 -->
+<meta property="og:image" content="http://example.com/article_thumbnail.jpg">
+<!-- 页面的简单描述 -->
+<meta property="og:description" content="This example article is an example of OpenGraph protocol.">
+
 
     
     <title>{% if page.title %}{{ page.title }} - {{ site.SEOTitle }}{% else %}{{ site.SEOTitle }}{% endif %}</title>
