@@ -109,5 +109,11 @@ chrome-tab-theme-color: "#000000"
 service-worker: true
 
 
-
+# Friends
+friends: [
+    {
+        title: "wu-kan",
+        href: "https://wu-kan.cn/#/"
+    }
+]
 
