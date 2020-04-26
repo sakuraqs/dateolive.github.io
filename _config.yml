@@ -112,7 +112,7 @@ service-worker: true
 # Friends
 friends: [
     {
-        title: "wu-kan",
+        title: "wu-kan——中大的学长",
         href: "https://wu-kan.cn/#/"  
     }
 ]
