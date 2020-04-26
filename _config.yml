@@ -113,7 +113,7 @@ service-worker: true
 friends: [
     {
         title: "wu-kan",
-        href: "https://wu-kan.cn/#/"  —— 一位中大的学长
+        href: "https://wu-kan.cn/#/"  
     }
 ]
 
