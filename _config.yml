@@ -93,8 +93,8 @@ gitalk:
   clientID: da2e2076661d99628fe7                            #生成的clientID
   clientSecret: f292a91f6e1b14a83126b2429e217afaac4028bc    #生成的clientSecret
   repo: dateolive.github.io    #仓库名称
-  owner: datealive    #github用户名
-  admin: datealive
+  owner: dateolive    #github用户名
+  admin: dateolive
   distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 
