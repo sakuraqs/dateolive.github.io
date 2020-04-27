@@ -94,7 +94,7 @@ gitalk:
 
 
 # SNS settings
-RSS: false
+RSS: true
 weibo_username:     6276083536
 zhihu_username:     dateolive
 github_username:    dateolive
