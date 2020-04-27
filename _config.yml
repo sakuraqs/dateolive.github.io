@@ -90,8 +90,8 @@ valine:
 # Gitalk
 gitalk:
   enable: true    #是否开启Gitalk评论
-  clientID: da2e2076661d99628fe7                            #生成的clientID
-  clientSecret: f292a91f6e1b14a83126b2429e217afaac4028bc    #生成的clientSecret
+  clientID: eb59c50048ba41cf6e00                            #生成的clientID
+  clientSecret: 3fc5fe54f7bf69d86357d60667618bd006c22570    #生成的clientSecret
   repo: dateolive.github.io    #仓库名称
   owner: dateolive    #github用户名
   admin: dateolive
