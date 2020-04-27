@@ -97,135 +97,50 @@
                     {% endif %}
                 </ul>
                 <!--<script type="text/javascript" src="/js/src/steproot.js"></script> -->
-  1 <script type="text/javascript">
-  2     /* 控制下雪 */
-  3     function snowFall(snow) {
-  4         /* 可配置属性 */
-  5         snow = snow || {};
-  6         this.maxFlake = snow.maxFlake || 200;   /* 最多片数 */
-  7         this.flakeSize = snow.flakeSize || 10;  /* 雪花形状 */
-  8         this.fallSpeed = snow.fallSpeed || 1;   /* 坠落速度 */
-  9     }
- 10     /* 兼容写法 */
- 11     requestAnimationFrame = window.requestAnimationFrame ||
- 12         window.mozRequestAnimationFrame ||
- 13         window.webkitRequestAnimationFrame ||
- 14         window.msRequestAnimationFrame ||
- 15         window.oRequestAnimationFrame ||
- 16         function(callback) { setTimeout(callback, 1000 / 60); };
- 17 
- 18     cancelAnimationFrame = window.cancelAnimationFrame ||
- 19         window.mozCancelAnimationFrame ||
- 20         window.webkitCancelAnimationFrame ||
- 21         window.msCancelAnimationFrame ||
- 22         window.oCancelAnimationFrame;
- 23     /* 开始下雪 */
- 24     snowFall.prototype.start = function(){
- 25         /* 创建画布 */
- 26         snowCanvas.apply(this);
- 27         /* 创建雪花形状 */
- 28         createFlakes.apply(this);
- 29         /* 画雪 */
- 30         drawSnow.apply(this)
- 31     }
- 32     /* 创建画布 */
- 33     function snowCanvas() {
- 34         /* 添加Dom结点 */
- 35         var snowcanvas = document.createElement("canvas");
- 36         snowcanvas.id = "snowfall";
- 37         snowcanvas.width = window.innerWidth;
- 38         snowcanvas.height = document.body.clientHeight;
- 39         snowcanvas.setAttribute("style", "position:absolute; top: 0; left: 0; z-index: 1; pointer-events: none;");
- 40         document.getElementsByTagName("body")[0].appendChild(snowcanvas);
- 41         this.canvas = snowcanvas;
- 42         this.ctx = snowcanvas.getContext("2d");
- 43         /* 窗口大小改变的处理 */
- 44         window.onresize = function() {
- 45             snowcanvas.width = window.innerWidth;
- 46             /* snowcanvas.height = window.innerHeight */
- 47         }
- 48     }
- 49     /* 雪运动对象 */
- 50     function flakeMove(canvasWidth, canvasHeight, flakeSize, fallSpeed) {
- 51         this.x = Math.floor(Math.random() * canvasWidth);   /* x坐标 */
- 52         this.y = Math.floor(Math.random() * canvasHeight);  /* y坐标 */
- 53         this.size = Math.random() * flakeSize + 2;          /* 形状 */
- 54         this.maxSize = flakeSize;                           /* 最大形状 */
- 55         this.speed = Math.random() * 1 + fallSpeed;         /* 坠落速度 */
- 56         this.fallSpeed = fallSpeed;                         /* 坠落速度 */
- 57         this.velY = this.speed;                             /* Y方向速度 */
- 58         this.velX = 0;                                      /* X方向速度 */
- 59         this.stepSize = Math.random() / 30;                 /* 步长 */
- 60         this.step = 0                                       /* 步数 */
- 61     }
- 62     flakeMove.prototype.update = function() {
- 63         var x = this.x,
- 64             y = this.y;
- 65         /* 左右摆动(余弦) */
- 66         this.velX *= 0.98;
- 67         if (this.velY <= this.speed) {
- 68             this.velY = this.speed
- 69         }
- 70         this.velX += Math.cos(this.step += .05) * this.stepSize;
- 71 
- 72         this.y += this.velY;
- 73         this.x += this.velX;
- 74         /* 飞出边界的处理 */
- 75         if (this.x >= canvas.width || this.x <= 0 || this.y >= canvas.height || this.y <= 0) {
- 76             this.reset(canvas.width, canvas.height)
- 77         }
- 78     };
- 79     /* 飞出边界-放置最顶端继续坠落 */
- 80     flakeMove.prototype.reset = function(width, height) {
- 81         this.x = Math.floor(Math.random() * width);
- 82         this.y = 0;
- 83         this.size = Math.random() * this.maxSize + 2;
- 84         this.speed = Math.random() * 1 + this.fallSpeed;
- 85         this.velY = this.speed;
- 86         this.velX = 0;
- 87     };
- 88     // 渲染雪花-随机形状（此处可修改雪花颜色！！！）
- 89     flakeMove.prototype.render = function(ctx) {
- 90         var snowFlake = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
- 91         snowFlake.addColorStop(0, "rgba(255, 255, 255, 0.9)");  /* 此处是雪花颜色，默认是白色 */
- 92         snowFlake.addColorStop(.5, "rgba(255, 255, 255, 0.5)"); /* 若要改为其他颜色，请自行查 */
- 93         snowFlake.addColorStop(1, "rgba(255, 255, 255, 0)");    /* 找16进制的RGB 颜色代码。 */
- 94         ctx.save();
- 95         ctx.fillStyle = snowFlake;
- 96         ctx.beginPath();
- 97         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
- 98         ctx.fill();
- 99         ctx.restore();
-100     };
-101     /* 创建雪花-定义形状 */
-102     function createFlakes() {
-103         var maxFlake = this.maxFlake,
-104             flakes = this.flakes = [],
-105             canvas = this.canvas;
-106         for (var i = 0; i < maxFlake; i++) {
-107             flakes.push(new flakeMove(canvas.width, canvas.height, this.flakeSize, this.fallSpeed))
-108         }
-109     }
-110     /* 画雪 */
-111     function drawSnow() {
-112         var maxFlake = this.maxFlake,
-113             flakes = this.flakes;
-114         ctx = this.ctx, canvas = this.canvas, that = this;
-115         /* 清空雪花 */
-116         ctx.clearRect(0, 0, canvas.width, canvas.height);
-117         for (var e = 0; e < maxFlake; e++) {
-118             flakes[e].update();
-119             flakes[e].render(ctx);
-120         }
-121         /*  一帧一帧的画 */
-122         this.loop = requestAnimationFrame(function() {
-123             drawSnow.apply(that);
-124         });
-125     }
-126     /* 调用及控制方法 */
-127     var snow = new snowFall({maxFlake:60});
-128     snow.start();
-129 </script>
+<script type="text/javascript">  
+  (function($){  
+     $.fn.snow = function(options){  
+     var $flake = $('<div id="snowbox" />').css({'position': 'absolute','z-index':'9999', 'top': '-50px', 'cursor': 'pointer'}).html('❄'),  
+      documentHeight  = $(document).height(),  
+     documentWidth   = $(document).width(),  
+      defaults = {  
+         minSize     : 10,  
+         maxSize     : 20,  
+         newOn       : 1000,  
+         flakeColor  : "#AFDAEF" /* 此处可以定义雪花颜色，若要白色可以改为#FFFFFF */  
+     },  
+     options = $.extend({}, defaults, options);  
+     var interval= setInterval( function(){  
+     var startPositionLeft = Math.random() * documentWidth - 100,  
+     startOpacity = 0.5 + Math.random(),  
+     sizeFlake = options.minSize + Math.random() * options.maxSize,  
+     endPositionTop = documentHeight - 200,  
+     endPositionLeft = startPositionLeft - 500 + Math.random() * 500,  
+     durationFall = documentHeight * 10 + Math.random() * 5000;  
+     $flake.clone().appendTo('body').css({  
+         left: startPositionLeft,  
+         opacity: startOpacity,  
+         'font-size': sizeFlake,  
+         color: options.flakeColor  
+     }).animate({  
+         top: endPositionTop,  
+         left: endPositionLeft,  
+         opacity: 0.2  
+     },durationFall,'linear',function(){  
+         $(this).remove()  
+     });  
+     }, options.newOn);  
+     };  
+ })(jQuery);  
+ $(function(){  
+     $.fn.snow({   
+         minSize: 5, /* 定义雪花最小尺寸 */  
+         maxSize: 50,/* 定义雪花最大尺寸 */  
+         newOn: 300  /* 定义密集程度，数字越小越密集 */  
+     });  
+ });  
+ </script> 
+
 
 
                 
