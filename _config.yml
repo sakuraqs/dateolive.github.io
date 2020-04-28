@@ -50,18 +50,13 @@ gems: [jekyll-paginate]
 # replace redcarpet to kramdown,
 # although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
 # document: http://jekyllrb.com/docs/configuration/#kramdown
-#markdown: kramdown
-#kramdown:
-  #input: GFM                            # use Github Flavored Markdown !important
-#pygments: false
-#highlighter: rouge
+markdown: kramdown
+kramdown:
+  input: GFM                            # use Github Flavored Markdown !important
+highlighter: rouge
 #highlighter: pygments
 #extensions: [fenced_code_blocks]
-markdown: kramdown
-kramdown: # 见<https://kramdown.gettalong.org/options.html>
-  input: GFM # 见<http://jekyllcn.com/docs/configuration/#kramdown>
-  syntax_highlighter_opts: # 可见<https://kramdown.gettalong.org/syntax_highlighter/rouge.html>
-    disable: true # 关掉默认的高亮，换用prismjs
+
 
 
 
