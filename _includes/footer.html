@@ -99,38 +99,39 @@
                
  <link
   rel="stylesheet"
-  href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-coy.min.css"
+  href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"
 />
 <script
-  src="//cdn.jsdelivr.net/npm/prismjs/components/prism-core.min.js"
+  src="https://cdn.jsdelivr.net/combine/npm/katex/dist/katex.min.js,npm/katex/dist/contrib/mathtex-script-type.min.js,npm/katex/dist/contrib/auto-render.min.js"
   defer="defer"
+  onload='renderMathInElement(document.body, { delimiters: [{ left: "$", right: "$", display: false }] })'
 ></script>
-<script
-  src="//cdn.jsdelivr.net/npm/prismjs/plugins/autoloader/prism-autoloader.min.js"
-  defer="defer"
-  onload='Prism.plugins.autoloader.languages_path = "https:\/\/cdn.jsdelivr.net/npm/prismjs/components/"'
-></script>
+
+
 <link
   rel="stylesheet"
-  href="//cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.min.css"
+  href="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css"
 />
 <script
-  src="//cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.min.js"
+  src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"
+  defer="defer"
+  onload='mermaid.init({}, ".language-mermaid");'
+></script>
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/combine/npm/prismjs/plugins/line-numbers/prism-line-numbers.min.css,npm/prismjs/plugins/toolbar/prism-toolbar.min.css,gh/PrismJS/prism-themes@1955cfef6953b3a59e66016e8a1e016b45d6cc79/themes/prism-nord.min.css"
+/>
+<script
+  src="https://cdn.jsdelivr.net/combine/npm/prismjs/components/prism-core.min.js,npm/prismjs/plugins/autoloader/prism-autoloader.min.js,npm/prismjs/plugins/line-numbers/prism-line-numbers.min.js,npm/prismjs/plugins/toolbar/prism-toolbar.min.js"
   defer="defer"
   onload='
+    Prism.plugins.autoloader.languages_path = "https:\/\/cdn.jsdelivr.net/npm/prismjs/components/";
     for(let x=document.getElementsByTagName("pre"), i=0;i<x.length;i++)
     {
       x[i].classList.add("line-numbers");
-    }'
-></script>
-<link
-  rel="stylesheet"
-  href="//cdn.jsdelivr.net/npm/prismjs/plugins/toolbar/prism-toolbar.min.css"
-/>
-<script
-  src="//cdn.jsdelivr.net/npm/prismjs/plugins/toolbar/prism-toolbar.min.js"
-  defer="defer"
-  onload='
+    }
     Prism.plugins.toolbar.registerButton("select-code", function (env) {
       let button = document.createElement("button");
       button.innerHTML = "select this " + env.language;
