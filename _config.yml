@@ -57,7 +57,7 @@ pygments: false
 highlighter: rouge
 #highlighter: pygments
 extensions: [fenced_code_blocks]
- pygmentsTheme: 'default'
+
 
 
 
