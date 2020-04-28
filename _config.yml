@@ -54,8 +54,10 @@ gems: [jekyll-paginate]
 #highlighter: pygments
 #kramdown:
   #input: GFM                            # use Github Flavored Markdown !important
-markdown: kramdown
-pygments: true
+pygments: false
+highlighter: rouge
+# highlighter: pygments
+extensions: [fenced_code_blocks]
   
   
 
